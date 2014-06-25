@@ -6,7 +6,7 @@
   (= [4 8 12] (map (fn [x] (* 4 x)) [1 2 3]))
 
   "You may create that mapping"
-  (= [1 4 9 16 25] (map (fn [x] (square x)) [1 2 3 4 5]))
+  (= [1 4 9 16 25] (map (fn [x] (* x x)) [1 2 3 4 5]))
 
   "Or use the names of existing functions"
   (= [false false true false false] (map nil? [:a :b nil :c :d]))
@@ -31,6 +31,6 @@
 
   "Numbers are not the only things one can reduce"
   (= "longest" (reduce (fn [a b]
-                         (if (< 1) b a))
+                         (if (< (count a) (count b)) b a))
                        ["which" "word" "is" "longest"]))
  )
